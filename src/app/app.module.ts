@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SiteHeaderComponent } from './site-header/site-header.component';
 import { SiteFooterComponent } from './site-footer/site-footer.component';
 import { ListAnnonceComponent } from './list-annonce/list-annonce.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ListAnnonceComponent } from './list-annonce/list-annonce.component';
     AppComponent,
     SiteHeaderComponent,
     SiteFooterComponent,
-    ListAnnonceComponent
+    ListAnnonceComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule
