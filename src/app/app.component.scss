@@ -1,0 +1,59 @@
+/* general */
+.fa-2x {
+  font-size: 2em;
+}
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.cliquable {
+  outline:none;
+  text-align: center;
+}
+div, h1, h2, h3, p, span {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+/* header */
+.header{
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  background-color: #0091ea;
+  -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  padding: 0;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  will-change: transform,opacity;
+  .select {
+    color: #fff;
+  }
+  .cliquable {
+    outline: none;
+    text-align: center;
+  }
+  .buttn {
+    padding: 0 16px;
+    a {
+      color: #fff;
+      text-decoration: none !important;
+    }
+  }
+  .h-link{
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+}
+.page{padding-top: 55px;}
