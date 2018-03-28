@@ -1,9 +1,9 @@
-<div class="container-fluid page">
+<div class="container-fluid page px-0">
   <div class="container">
     <form class="home-form">
-      <div id="searchbar">
-        <input type="text" id="topics" style="float:left" class="ui-autocomplete-input" autocomplete="off"><input type="hidden" id="topicID">
-        <div id="btn" onclick="checkWeb()" style="float:left">Get Started</div>
+      <div id="searchbar" class="row m-0">
+        <input type="text" id="topics" class="ui-autocomplete-input col" autocomplete="off"><input type="hidden" id="topicID">
+        <button mat-button id="btn" onclick="checkWeb()" class="col-auto">Chercher</button>
       </div>
     </form>
   </div>
