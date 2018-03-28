@@ -1,9 +1,11 @@
 <div class="container-fluid page px-0">
   <div class="container">
     <form class="home-form">
-      <div id="searchbar" class="row m-0">
-        <input type="text" id="topics" class="ui-autocomplete-input col" autocomplete="off"><input type="hidden" id="topicID">
-        <button mat-button id="btn" onclick="checkWeb()" class="col-auto">Chercher</button>
+      <div class="row m-0">
+        <mat-form-field class="col">
+          <input matInput placeholder="Ville ou nom d'hôtel">
+        </mat-form-field>
+        <button mat-button id="btn" onclick="search()" class="col-auto" id="btn">Chercher</button>
       </div>
     </form>
   </div>

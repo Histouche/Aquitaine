@@ -3,8 +3,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'app-site-header',
   templateUrl: './site-header.component.html',
-  styleUrls: ['./site-header.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./site-header.component.scss']
 })
 export class SiteHeaderComponent implements OnInit {
 

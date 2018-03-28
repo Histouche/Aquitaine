@@ -1,24 +1,36 @@
+app-home{
+  .home-form{
+    width: 100%;
+    padding: 250px 15px;
+    mat-form-field{
+      padding: 0;
+      .mat-form-field-label {color: #0091ea;padding-left: 7px;}
+      .mat-form-field-flex{
+        background-color: #fff;
+      }
+      .mat-form-field-infix{padding: 7px;}
+    }
+    mat-form-field.mat-form-field-should-float{
+      .mat-form-field-label {color: #0091ea;left: 0px;}
+    }
+  }
+  .container{background: #ddd; }
 
-.home-form{
-   width: 100%;
-   padding: 250px 15px;
- }
-.container{background: #ddd; }
+  #searchbar {
+    width: 100%;
+    height: 50px;
+    background: #0091ea;
+    border-radius: 5px;
+    border: 3px solid #0091ea;
 
-#searchbar {
-  width: 100%;
-  height: 50px;
-  background: #0091ea;
-  border-radius: 5px;
-  border: 3px solid #0091ea;
-
-  input {
-    height: 44px;
-    font-size: 20px;
-    outline: none;
-    padding: 10px;
-    border: none;
-    background: white;
+    input {
+      height: 44px;
+      font-size: 20px;
+      outline: none;
+      padding: 10px;
+      border: none;
+      background: white;
+    }
   }
   #btn {
     background: #0091ea;
@@ -31,4 +43,5 @@
     line-height: 25px;
     font-size: 16px;
   }
+
 }
