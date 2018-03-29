@@ -35,7 +35,7 @@ app-home{
   #btn {
     background: #0091ea;
     height: 44px;
-    padding: 10px;
+    padding: 10px 15px;
     color: white;
     font-family: "helvetica";
     cursor: pointer;
@@ -43,5 +43,15 @@ app-home{
     line-height: 25px;
     font-size: 16px;
   }
+  .input-search{
+    padding: 5px 15px;
+    border: 2px solid #ccc;
+    outline : none;
+    transition: all linear 0.2s;
+    &:hover{
+      border: 2px solid #0091ea;
+    }
+  }
+
 
 }
