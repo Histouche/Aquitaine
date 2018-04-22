@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { ListAnnonceComponent } from '../list-annonce/list-annonce.component';
 
 @Component({
   selector: 'app-home',
@@ -16,5 +17,7 @@ export class HomeComponent implements OnInit {
   }
 
   search() {
+    this.router.navigate([]);
   }
+
 }

@@ -43,6 +43,12 @@ import {
   MatPaginatorIntl,
 } from '@angular/material';
 
+import { UserService } from './services/user.service';
+import { VariablesService } from './services/variables.service';
+import { LinkService } from './services/link.service';
+
+import { SlickModule } from 'ngx-slick';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,11 +91,17 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    SlickModule.forRoot(),
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full'}
+      { path: '', component: HomeComponent, pathMatch: 'full'},
+      { path: 'liste-annonce', component: ListAnnonceComponent, pathMatch: 'full'}
     ])
   ],
-  providers: [],
+  providers: [
+    UserService,
+    LinkService ,
+    VariablesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

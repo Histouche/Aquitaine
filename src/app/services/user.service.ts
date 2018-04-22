@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 import { JwtHelper, AuthHttp, tokenNotExpired } from 'angular2-jwt';
 import { Observable } from 'rxjs/Observable';
 import { LocalStorageService } from 'angular-2-local-storage';
-import { urlAPI } from './constantes.service'
+import { urlAPI } from './constantes.service';
 
 
 
@@ -66,7 +66,7 @@ export class UserService {
   getAvatar() {
     let userService = this;
     let data = new FormData();
-    data.append("json", JSON.stringify({ id: this.currentUser.id }));
+    data.append('json', JSON.stringify({ id: this.currentUser.id }));
     return new Promise(function (resolve, reject) {
       /* appel api */
       userService.authHttp.post(userService.url + 'getAvatar', data)
@@ -128,7 +128,7 @@ export class UserService {
   changeAvatar(url, iduser) {
     let userService = this;
     let data = new FormData();
-    data.append("json", JSON.stringify({ id: iduser, url: url }));
+    data.append('json', JSON.stringify({ id: iduser, url: url }));
     console.log(url, iduser);
     return new Promise(function (resolve, reject) {
       // appel api
@@ -152,7 +152,7 @@ export class UserService {
   removeAvatar(iduser) {
     let userService = this;
     let data = new FormData();
-    data.append("json", JSON.stringify({ id: iduser }));
+    data.append('json', JSON.stringify({ id: iduser }));
 
     return new Promise(function (resolve, reject) {
       // appel api
@@ -175,7 +175,7 @@ export class UserService {
   getProfil(id) {
     let userService = this;
     let data = new FormData();
-    data.append("json", JSON.stringify({ id: id }));
+    data.append('json', JSON.stringify({ id: id }));
     return new Promise(function (resolve, reject) {
       // appel api
       userService.authHttp.post(userService.url + 'getProfil', data)
@@ -198,7 +198,7 @@ export class UserService {
     let userService = this;
     let data = new FormData();
     user.id = id;
-    data.append("json", JSON.stringify(user));
+    data.append('json', JSON.stringify(user));
     return new Promise(function (resolve, reject) {
       // appel api
       userService.authHttp.post(userService.url + 'changeProfil', data)
@@ -228,7 +228,7 @@ export class UserService {
       user.avatar = avatar;
     user['stayConnected'] = this.jwtHelper.decodeToken(this.userToken).data.stayConnected;
     console.log("userrr!", user);
-    data.append("json", JSON.stringify(user));
+    data.append('json', JSON.stringify(user));
     return new Promise(function (resolve, reject) {
       // appel api
       userService.authHttp.post(userService.url + 'majToken', data)
@@ -236,7 +236,7 @@ export class UserService {
         .subscribe(
           data => {
             console.log(data);
-            if (data["response"]) {
+            if (data['response']) {
               userService.setCurrentUser(data['token']);
 
             }
@@ -251,7 +251,7 @@ export class UserService {
     let userService = this;
     let data = new FormData();
 
-    data.append("json", JSON.stringify(mdp));
+    data.append('json', JSON.stringify(mdp));
     return new Promise(function (resolve, reject) {
       // appel api
       userService.authHttp.post(userService.url + 'changeMdp', data)
@@ -270,7 +270,7 @@ export class UserService {
     let userService = this;
     let data = new FormData();
 
-    data.append("json", JSON.stringify(email));
+    data.append('json', JSON.stringify(email));
     return new Promise(function (resolve, reject) {
       // appel api
       userService.http.post(userService.url + 'forgotMdpMail', data)
@@ -290,7 +290,7 @@ export class UserService {
     let data = new FormData();
     password.id = id;
     password.code = code;
-    data.append("json", JSON.stringify(password));
+    data.append('json', JSON.stringify(password));
     return new Promise(function (resolve, reject) {
       // appel api
       userService.http.post(userService.url + 'reinitMdp', data)
@@ -310,7 +310,7 @@ export class UserService {
     let data = new FormData();
     code.email = email;
     console.log(code);
-    data.append("json", JSON.stringify(code));
+    data.append('json', JSON.stringify(code));
     return new Promise(function (resolve, reject) {
       // appel api
       userService.http.post(userService.url + 'verifCodeMdp', data)
@@ -329,7 +329,7 @@ export class UserService {
     let userService = this;
     let data = new FormData();
     console.log(email);
-    data.append("json", JSON.stringify({'email': email}));
+    data.append('json', JSON.stringify({'email': email}));
     return new Promise(function (resolve, reject) {
       // appel api
       userService.http.post(userService.url + 'envoyerMailConfirmation', data)

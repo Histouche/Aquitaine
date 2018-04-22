@@ -29,7 +29,7 @@ export class LinkService {
       if (head === null) {
         throw new Error('<head> not found within DOCUMENT.');
       }
-      //console.log(head);
+      // console.log(head);
       Object.keys(tag).forEach((prop: string) => {
         return renderer.setAttribute(link, prop, tag[prop]);
       });

@@ -1,7 +1,20 @@
 app-home{
+  .home-background{
+    height: 100vh;
+    width: 100vw;
+    background: url('../../assets/img/home-background.jpg') center no-repeat;
+    background-size: cover;
+    &:before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0, 0.3);
+    }
+  }
+
   .home-form{
     width: 100%;
-    padding: 250px 15px;
     mat-form-field{
       padding: 0;
       .mat-form-field-label {color: #0091ea;padding-left: 7px;}
@@ -14,7 +27,6 @@ app-home{
       .mat-form-field-label {color: #0091ea;left: 0px;}
     }
   }
-  .container{background: #ddd; }
 
   #searchbar {
     width: 100%;
@@ -44,13 +56,19 @@ app-home{
     font-size: 16px;
   }
   .input-search{
-    padding: 5px 15px;
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 12px 15px;
     border: 2px solid #ccc;
     outline : none;
     transition: all linear 0.2s;
-    &:hover{
-      border: 2px solid #0091ea;
+    &:hover {
+      //border: 2px solid #0091ea;
+      background-color: rgba(255,255,255,1);
+      color: #333;
     }
+    &::placeholder{color: #fff;transition: all linear 0.2s;}
+    &:hover::placeholder{color: #333;}
   }
 
 
