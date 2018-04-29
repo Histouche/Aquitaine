@@ -10,8 +10,20 @@ import { ListAnnonceComponent } from '../list-annonce/list-annonce.component';
 })
 export class HomeComponent implements OnInit {
 
+  annonceList: any[] = [
+    {
+      "name": "Douglas  Pace"
+    },
+    {
+      "name": "Mcleod  Mueller"
+    },
+    {
+      "name": "Day  Meyers"
+    }
+  ];
 
-  constructor(private router: Router) { }
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
   }

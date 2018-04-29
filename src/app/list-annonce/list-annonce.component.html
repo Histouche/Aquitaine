@@ -1,3 +1,75 @@
 <div class="container-fluid page px-0">
-<div class=""></div>
+  <div class="home-background">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-12">
+          <div class="row h-100">
+            <h1 class="search-city text-center col-12 align-self-end">Hôtels à Bordeaux</h1>
+          </div>
+        </div>
+        <form class="home-form col-auto">
+          <div class="row m-0 justify-content-center">
+            <input class="col-11 col-md-6 mb-3 input-search" placeholder="Ex : Bordeaux">
+            <button mat-button id="btn" [routerLink]="'/liste-annonce'" class="col-md-auto col-1" id="btn"><span class="d-none d-md-block">Trouver mon hôtel</span><i class="fa fa-search d-md-none" aria-hidden="true"></i></button>
+          </div>
+          <div class="row m-0 justify-content-center">
+            <div class="col-auto depart-retour-fields">
+              <div class="row m-0 justify-content-center">
+                <div class="col-auto px-1">
+                  <mat-form-field>
+                    <input matInput [matDatepicker]="pickerS" placeholder="Date de départ">
+                    <mat-datepicker-toggle matSuffix [for]="pickerS"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerS></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-auto px-1">
+                  <mat-form-field>
+                    <input matInput [matDatepicker]="pickerA" placeholder="Date d'arrivée">
+                    <mat-datepicker-toggle matSuffix [for]="pickerA"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerA></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-auto px-1">
+                  <mat-form-field>
+                    <mat-select placeholder="Chambre simple">
+                      <mat-option *ngFor="let group of groups" [value]="group.value">
+                        {{ group.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container list-annonce mt-3">
+    <div class="col-auto px-2">
+      <div class="row">
+        <div class="col-auto filtres py-3">
+          <div class="row">
+            <div class="col-12 filtre-int mb-3">Prix</div>
+            <div class="col-12">
+              <div class="row m-0 justify-content-between">
+                <div class="col-auto px-0">45</div>
+                <div class="col-auto px-0">365</div>
+                <mat-slider class="prix-cursor py-0" min="45" max="675" step="10"></mat-slider>
+              </div>
+            </div>
+            <div class="col-12 filtre-int mb-3">Avis des clients</div>
+            <div class="col-12">
+              <div class="row">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
 </div>

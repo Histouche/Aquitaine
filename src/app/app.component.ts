@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
+import 'hammerjs';
 
 
 @Component({

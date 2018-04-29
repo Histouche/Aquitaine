@@ -42,7 +42,7 @@ import {
   MatStepperModule,
   MatPaginatorIntl,
 } from '@angular/material';
-
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { UserService } from './services/user.service';
 import { VariablesService } from './services/variables.service';
 import { LinkService } from './services/link.service';
@@ -91,6 +91,7 @@ import { SlickModule } from 'ngx-slick';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    AngularFontAwesomeModule,
     SlickModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full'},

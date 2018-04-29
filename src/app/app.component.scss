@@ -56,8 +56,11 @@ div, h1, h2, h3, p, span {
     padding: 0 16px;
     a {
       color: #fff;
-      transition: all linear 0.2s;
+      transition: all linear 0.1s;
       text-decoration: none !important;
+      &:hover{
+        color: #0091ea;
+      }
     }
   }
   .h-link{
