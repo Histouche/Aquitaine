@@ -7,9 +7,9 @@
           <a [routerLink]="['/']">Accueil</a>
         </div>
       </div>
-      <div id="liste-annonce" [routerLink]="['/']" (click)="select('home')" [class]="selection=='home'? 'select col-auto px-2 cliquable d-none d-lg-block h-link' : 'noselect col-auto px-2 cliquable d-none d-lg-block h-link'">
+      <div id="liste-annonce"  (click)="select('home')" [class]="selection=='home'? 'select col-auto px-2 cliquable d-none d-lg-block h-link' : 'noselect col-auto px-2 cliquable d-none d-lg-block h-link'">
         <div class="buttn">
-          <a [routerLink]="['/']">Liste des annonces</a>
+          <a [routerLink]="'/liste-annonce'">Liste des annonces</a>
         </div>
       </div>
     </div>

@@ -48,6 +48,7 @@ import { VariablesService } from './services/variables.service';
 import { LinkService } from './services/link.service';
 
 import { SlickModule } from 'ngx-slick';
+import { AnnonceComponent } from './annonce/annonce.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { SlickModule } from 'ngx-slick';
     SiteHeaderComponent,
     SiteFooterComponent,
     ListAnnonceComponent,
-    HomeComponent
+    HomeComponent,
+    AnnonceComponent
   ],
   imports: [
     [BrowserAnimationsModule],
@@ -95,7 +97,8 @@ import { SlickModule } from 'ngx-slick';
     SlickModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full'},
-      { path: 'liste-annonce', component: ListAnnonceComponent, pathMatch: 'full'}
+      { path: 'liste-annonce', component: ListAnnonceComponent, pathMatch: 'full'},
+      { path: 'annonce', component: AnnonceComponent, pathMatch: 'full'}
     ])
   ],
   providers: [

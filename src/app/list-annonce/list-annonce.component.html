@@ -46,30 +46,88 @@
     </div>
   </div>
   <div class="container list-annonce mt-3">
-    <div class="col-auto px-2">
       <div class="row">
         <div class="col-auto filtres py-3">
           <div class="row">
+            <div class="col-12 filtre-int mb-3 text-uppercase">Filtres</div>
             <div class="col-12 filtre-int mb-3">Prix</div>
             <div class="col-12">
               <div class="row m-0 justify-content-between">
                 <div class="col-auto px-0">45</div>
-                <div class="col-auto px-0">365</div>
-                <mat-slider class="prix-cursor py-0" min="45" max="675" step="10"></mat-slider>
+                <div class="col-auto px-0">657</div>
+                <mat-slider class="prix-cursor py-0" [thumb-label]="thumbLabel" min="45" max="675" step="10"></mat-slider>
               </div>
             </div>
             <div class="col-12 filtre-int mb-3">Avis des clients</div>
             <div class="col-12">
-              <div class="row">
-                
+              <div class="row m-0 justify-content-between">
+                <div class="col-auto px-0">0</div>
+                <div class="col-auto px-0">10</div>
+                <mat-slider class="prix-cursor py-0" [thumb-label]="thumbLabel" (ngModel)="value" min="0" max="10" step="0.5"></mat-slider>
+              </div>
+            </div>
+            <div class="col-12 filtre-int mb-3">Catégorie de l'hôtel</div>
+            <div class="col-12">
+              <div class="row justify-content-center">
+                <div class="col-12">
+                  <mat-checkbox>1 étoile</mat-checkbox>
+                </div>
+                <div class="col-12">
+                  <mat-checkbox>2 étoiles</mat-checkbox>
+                </div>
+                <div class="col-12">
+                  <mat-checkbox>3 étoiles</mat-checkbox>
+                </div>
+                <div class="col-12">
+                  <mat-checkbox>4 étoiles</mat-checkbox>
+                </div>
+                <div class="col-12">
+                  <mat-checkbox>5 étoiles</mat-checkbox>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="col">
+            <div class="row mx-0">
+              <div class="col-12 annonce-list-bien mb-2" *ngFor="let annonce of annonceList" [routerLink]="'/annonce'">
+                  <div class="row mx-0">
+                    <div class="col-3 bien-img" style="background: url('https://imgio.trivago.com/itemimages/12/33/12330_v9_isq@2x.jpeg') center no-repeat;background-size: cover;">
+                    </div>
+                    <div class="col">
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="row">
+                            <div class="col-12 bien-city"><i class="fa fa-map-marker" aria-hidden="true"></i> Bordeaux</div>
+                            <div class="col-12 bien-title">Pullman Bordeaux Lac</div>
+                            <div class="bien-stars col-12 mb-1">
+                              <div class="row m-0">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                              </div>
+                            </div>
+                            <div class="col-12 mb-2">
+                              <div class="row m-0">
+                                <div class="note note-8 col-auto">8</div>
+                                <div class="col px-2 nb-avis">(5 avis)</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="row h-100 justify-content-end">
+                            <div class="col-12 text-right">
+                              50 €
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
       </div>
-    </div>
-    <div class="col">
-
-    </div>
   </div>
 </div>
