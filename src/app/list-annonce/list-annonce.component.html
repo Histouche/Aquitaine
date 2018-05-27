@@ -47,15 +47,26 @@
   </div>
   <div class="container list-annonce mt-3">
       <div class="row">
-        <div class="col-auto filtres py-3">
+        <form class="col-auto filtres py-3" id="search-options">
           <div class="row">
             <div class="col-12 filtre-int mb-3 text-uppercase">Filtres</div>
             <div class="col-12 filtre-int mb-3">Prix</div>
             <div class="col-12">
               <div class="row m-0 justify-content-between">
-                <div class="col-auto px-0">45</div>
-                <div class="col-auto px-0">657</div>
-                <mat-slider class="prix-cursor py-0" [thumb-label]="thumbLabel" min="45" max="675" step="10"></mat-slider>
+                <section class="example-section col-12 px-0">
+                  <div class="row">
+                    <mat-form-field class="example-margin col-6">
+                      <input matInput type="number" #minV value="0" min="0" placeholder="P. min" [(ngModel)]="min">
+                    </mat-form-field>
+                    <mat-form-field class="example-margin col-6">
+                      <input matInput type="number" #maxV value="250"  placeholder="P. max" [(ngModel)]="max">
+                    </mat-form-field>
+                  </div>
+                </section>
+                <!--<div class="col-auto px-0">{{minV.value}}</div>
+                <div class="col-auto px-0">{{maxV.value}}</div>-->
+                <mat-slider class="prix-cursor py-0" #prix [thumb-label]="thumbLabel" [max]="maxV.value" [min]="minV.value" step="10" [(ngModel)]="price"></mat-slider>
+                <input type="hidden" [value]="prix.value" [(ngModel)]="price" name="prixA">
               </div>
             </div>
             <div class="col-12 filtre-int mb-3">Avis des clients</div>
@@ -63,7 +74,8 @@
               <div class="row m-0 justify-content-between">
                 <div class="col-auto px-0">0</div>
                 <div class="col-auto px-0">10</div>
-                <mat-slider class="prix-cursor py-0" [thumb-label]="thumbLabel" (ngModel)="value" min="0" max="10" step="0.5"></mat-slider>
+                <mat-slider class="prix-cursor py-0" #note [thumb-label]="thumbLabel" (ngModel)="value" min="0" max="10" step="0.5"></mat-slider>
+                <input type="hidden" [value]="note.value" [(ngModel)]="noted" name="noteA">
               </div>
             </div>
             <div class="col-12 filtre-int mb-3">Catégorie de l'hôtel</div>
@@ -87,7 +99,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </form>
         <div class="col">
             <div class="row mx-0">
               <div class="col-12 annonce-list-bien mb-2" *ngFor="let annonce of annonceList | searchPipe: query" [routerLink]="'/annonce'">

@@ -12,6 +12,7 @@ import { SearchPipe } from '../pipes/search-pipe.pipe';
 })
 export class ListAnnonceComponent implements OnInit {
 
+
   public annonces: AnnonceInterface[];
   /* search filter */
   public search: any = '';

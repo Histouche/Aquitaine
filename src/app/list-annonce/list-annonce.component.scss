@@ -94,4 +94,7 @@ app-list-annonce{
     padding: 0px;
     cursor : pointer;
   }
+
+  .mat-slider-track-background{background-color: #0091ea !important; }
+  .mat-slider-track-fill{background-color: rgba(0,0,0,.26) !important;}
 }
