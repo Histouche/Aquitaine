@@ -7,9 +7,9 @@
             <h1 class="search-city text-center col-12 align-self-end">Hôtels à Bordeaux</h1>
           </div>
         </div>
-        <form class="home-form col-auto">
+        <form class="home-form col-auto" id="search">
           <div class="row m-0 justify-content-center">
-            <input class="col-11 col-md-6 mb-3 input-search" placeholder="Ex : Bordeaux" [(ngModel)]="query" id="search-input">
+            <input class="col-11 col-md-6 mb-3 input-search" placeholder="Ex : Bordeaux" [(ngModel)]="query" id="search-input" name="name">
             <button mat-button id="btn" [routerLink]="'/liste-annonce'" class="col-md-auto col-1" id="btn"><span class="d-none d-md-block">Trouver mon hôtel</span><i class="fa fa-search d-md-none" aria-hidden="true"></i></button>
           </div>
           <div class="row m-0 justify-content-center">
@@ -90,7 +90,7 @@
         </div>
         <div class="col">
             <div class="row mx-0">
-              <div class="col-12 annonce-list-bien mb-2" *ngFor="let annonce of annonceList" [routerLink]="'/annonce'">
+              <div class="col-12 annonce-list-bien mb-2" *ngFor="let annonce of annonceList | searchPipe: query" [routerLink]="'/annonce'">
                   <div class="row mx-0">
                     <div class="col-3 bien-img" [style.background-image]=" annonce.imgMiniature ? 'url('+annonce.imgMiniature+')' : 'url(\'../../assets/img/home-background.jpg\')'" style="background-position:center;background-size: cover;">
                     </div>

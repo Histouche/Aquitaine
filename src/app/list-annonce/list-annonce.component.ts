@@ -2,6 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AnnonceInterface} from '../interfaces/annonce-interface';
 import {DataService} from '../services/data.service';
+import { SearchPipe } from '../pipes/search-pipe.pipe';
 
 @Component({
   selector: 'app-list-annonce',
