@@ -9,7 +9,7 @@
         </div>
         <form class="home-form col-auto">
           <div class="row m-0 justify-content-center">
-            <input class="col-11 col-md-6 mb-3 input-search" placeholder="Ex : Bordeaux">
+            <input class="col-11 col-md-6 mb-3 input-search" placeholder="Ex : Bordeaux" [(ngModel)]="query" id="search-input">
             <button mat-button id="btn" [routerLink]="'/liste-annonce'" class="col-md-auto col-1" id="btn"><span class="d-none d-md-block">Trouver mon hôtel</span><i class="fa fa-search d-md-none" aria-hidden="true"></i></button>
           </div>
           <div class="row m-0 justify-content-center">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-auto px-1">
                   <mat-form-field>
-                    <mat-select placeholder="Chambre simple">
+                    <mat-select placeholder="Type de chambre">
                       <mat-option *ngFor="let group of groups" [value]="group.value">
                         {{ group.viewValue }}
                       </mat-option>
@@ -92,25 +92,27 @@
             <div class="row mx-0">
               <div class="col-12 annonce-list-bien mb-2" *ngFor="let annonce of annonceList" [routerLink]="'/annonce'">
                   <div class="row mx-0">
-                    <div class="col-3 bien-img" style="background: url('https://imgio.trivago.com/itemimages/12/33/12330_v9_isq@2x.jpeg') center no-repeat;background-size: cover;">
+                    <div class="col-3 bien-img" [style.background-image]=" annonce.imgMiniature ? 'url('+annonce.imgMiniature+')' : 'url(\'../../assets/img/home-background.jpg\')'" style="background-position:center;background-size: cover;">
                     </div>
-                    <div class="col">
+                    <div class="col p-3">
                       <div class="row">
                         <div class="col-6">
                           <div class="row">
-                            <div class="col-12 bien-city"><i class="fa fa-map-marker" aria-hidden="true"></i> Bordeaux</div>
-                            <div class="col-12 bien-title">Pullman Bordeaux Lac</div>
+                            <div class="col-12 bien-city"><i class="fa fa-map-marker" aria-hidden="true"></i> {{annonce.ville}}</div>
+                            <div class="col-12 bien-title">{{annonce.titleAnnonce}}</div>
                             <div class="bien-stars col-12 mb-1">
                               <div class="row m-0">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true" *ngIf="annonce.etoile >= 1 "></i>
+                                <i class="fa fa-star" aria-hidden="true" *ngIf="annonce.etoile >= 2 "></i>
+                                <i class="fa fa-star" aria-hidden="true" *ngIf="annonce.etoile >= 3 "></i>
+                                <i class="fa fa-star" aria-hidden="true" *ngIf="annonce.etoile >= 4 "></i>
+                                <i class="fa fa-star" aria-hidden="true" *ngIf="annonce.etoile >= 5 "></i>
                               </div>
                             </div>
                             <div class="col-12 mb-2">
                               <div class="row m-0">
-                                <div class="note note-8 col-auto">8</div>
-                                <div class="col px-2 nb-avis">(5 avis)</div>
+                                <div class="note note-8 col-auto">{{annonce.note}}</div>
+                                <div class="col px-2 nb-avis">({{annonce.nbAvis}} avis)</div>
                               </div>
                             </div>
                           </div>
@@ -118,7 +120,7 @@
                         <div class="col-6">
                           <div class="row h-100 justify-content-end">
                             <div class="col-12 text-right">
-                              50 €
+                              {{annonce.prix}} €
                             </div>
                           </div>
                         </div>

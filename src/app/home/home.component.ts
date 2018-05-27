@@ -12,13 +12,13 @@ export class HomeComponent implements OnInit {
 
   annonceList: any[] = [
     {
-      "name": "Douglas  Pace"
+      'name': 'https://imgio.trivago.com/itemimages/12/33/12330_v9_isq@2x.jpeg'
     },
     {
-      "name": "Mcleod  Mueller"
+      'name': 'https://imgio.trivago.com/itemimages/12/33/12330_v9_isq@2x.jpeg'
     },
     {
-      "name": "Day  Meyers"
+      'name': 'https://imgio.trivago.com/itemimages/12/33/12330_v9_isq@2x.jpeg'
     }
   ];
 

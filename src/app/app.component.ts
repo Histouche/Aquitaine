@@ -1,24 +1,38 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import 'hammerjs';
-
+import { ApiService } from './services/api.service';
+import {AnnonceInterface} from './interfaces/annonce-interface';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  providers: [ApiService]
 })
 export class AppComponent implements OnInit {
 
   selection: String = 'home';
   menuOpen = false;
-  constructor() {
+  title = 'app';
+  _annoncesArray: AnnonceInterface[];
+
+  constructor(private apiService: ApiService) {
 
   }
 
-  ngOnInit() {
+  getAnnonces(): void {
+    /*this.apiService.getAnnonces()
+      .subscribe(
+        resultArray => this._annoncesArray = resultArray,
+        error => console.log("Erreur ::" + error)
+      )*/
+  }
+
+  ngOnInit(): void {
     console.log('aaa');
+    this.getAnnonces();
   }
 
   select(item) {

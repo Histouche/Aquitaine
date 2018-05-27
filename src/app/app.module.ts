@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { SiteHeaderComponent } from './site-header/site-header.component';
@@ -50,6 +53,11 @@ import { LinkService } from './services/link.service';
 import { SlickModule } from 'ngx-slick';
 import { AnnonceComponent } from './annonce/annonce.component';
 
+
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { SearchPipe } from './pipes/search-pipe.pipe';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +65,8 @@ import { AnnonceComponent } from './annonce/annonce.component';
     SiteFooterComponent,
     ListAnnonceComponent,
     HomeComponent,
-    AnnonceComponent
+    AnnonceComponent,
+    SearchPipe
   ],
   imports: [
     [BrowserAnimationsModule],
@@ -93,8 +102,11 @@ import { AnnonceComponent } from './annonce/annonce.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    FormsModule,
+    HttpModule,
     AngularFontAwesomeModule,
     SlickModule.forRoot(),
+    MDBBootstrapModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full'},
       { path: 'liste-annonce', component: ListAnnonceComponent, pathMatch: 'full'},
@@ -104,8 +116,10 @@ import { AnnonceComponent } from './annonce/annonce.component';
   providers: [
     UserService,
     LinkService ,
-    VariablesService
+    VariablesService,
+    [Http]
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule { }

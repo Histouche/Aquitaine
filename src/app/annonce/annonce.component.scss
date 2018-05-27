@@ -1,0 +1,92 @@
+app-annonce{
+  .page{background-color: #ccc;}
+  .search-city{color: #fff;}
+  .home-background {
+    height: 500px;
+    width: 100vw;
+    background: url('../../assets/img/home-background.jpg') center no-repeat;
+    background-size: cover;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 500px;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+  .annonce-fiche{background-color: #fff;}
+  .prix{font-size: 50px;color: #0091ea;letter-spacing: -1px;font-weight: 600;}
+  .carousel-inner{background-color: #ccc;}
+  .note{color: #fff;border-radius: 50%;width: 30px;text-align: center;padding: 0;line-height: 30px;font-size: 14px;}
+  .note-8{background-color: #428500;}
+  .nb-avis{font-size: 13px;line-height: 30px;}
+  .a-partir{color: #333;font-size: 14px;line-height: 55px;padding: 10px 5px;float:left;}
+  .icones-list{
+    font-size :25px;
+    .fa{margin: 5px;color: #0091ea;}
+  }
+  .list-annonce {
+    background-color: #fff;
+    .home-bien {
+      transform: translateY(0px);
+      transition: all linear 0.1s;
+      > .row {
+        -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .08);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .08);
+        overflow: hidden;
+        position: relative;
+      }
+      .bien-img {
+        height: 200px;
+      }
+      .bien-city {
+        font-size: 13px;
+        color: #333;
+        padding-top: 5px;
+      }
+      .bien-title {
+        font-size: 18px;
+      }
+      .fa-star {
+        color: rgb(246, 171, 63);
+        margin: 0 1px;
+      }
+
+      .bien-prix {
+        color: #0091ea;
+        font-size: 30px;
+      }
+      .offre {
+        font-size: 12px;
+        color: #fff;
+        background-color: #0091ea;
+        position: absolute;
+        top: 30px;
+        right: -30px;
+        transform: rotate(45deg);
+        padding: 2px;
+        text-align: center;
+        width: 150px;
+      }
+      .note {
+        color: #fff;
+        border-radius: 50%;
+        width: 30px;
+        text-align: center;
+        padding: 0;
+        line-height: 30px;
+        font-size: 14px;
+      }
+      .note-8 {
+        background-color: #428500;
+      }
+      .nb-avis {
+        font-size: 13px;
+        line-height: 30px;
+      }
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
