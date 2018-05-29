@@ -56,6 +56,8 @@ import { AnnonceComponent } from './annonce/annonce.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SearchPipe } from './pipes/search-pipe.pipe';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { UserPageComponent } from './user-page/user-page.component';
 
 
 @NgModule({
@@ -66,7 +68,9 @@ import { SearchPipe } from './pipes/search-pipe.pipe';
     ListAnnonceComponent,
     HomeComponent,
     AnnonceComponent,
-    SearchPipe
+    SearchPipe,
+    ConnexionComponent,
+    UserPageComponent
   ],
   imports: [
     [BrowserAnimationsModule],
