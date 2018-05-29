@@ -5,7 +5,7 @@ import { UserService } from './services/user.service';
 import { ApiService } from './services/api.service';
 import {AnnonceInterface} from './interfaces/annonce-interface';
 import { VariablesService } from './services/variables.service';
-import { LocalStorageService } from 'angular-2-local-storage';
+/*import { LocalStorageService } from 'angular-2-local-storage'; */
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
 
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   title = 'app';
   _annoncesArray: AnnonceInterface[];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private variables: VariablesService, private localStorageService: LocalStorageService, private router: Router, private userService: UserService/*, private update: UpdateService*/) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private variables: VariablesService,/* private localStorageService: LocalStorageService,*/ private router: Router, private userService: UserService/*, private update: UpdateService*/) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         this.loading = true;
