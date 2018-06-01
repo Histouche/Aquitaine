@@ -1,0 +1,10 @@
+app-site-header{
+
+  .header{
+    .user-head{color: #fff;font-size: 24px;cursor: pointer;transition: all linear .2s;}
+    &.scrolled{
+      .user-head{color: #333;}
+    }
+  }
+
+}

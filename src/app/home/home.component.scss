@@ -1,0 +1,101 @@
+app-home{
+  .home-background{
+    height: 100vh;
+    width: 100vw;
+    background: url('../../assets/img/home-background.jpg') center no-repeat;
+    background-size: cover;
+    &:before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0, 0.3);
+    }
+  }
+
+  .home-form{
+    width: 100%;
+    mat-form-field{
+      padding: 0;
+      .mat-form-field-label {color: #0091ea;padding-left: 7px;}
+      .mat-form-field-flex{
+        background-color: #fff;
+      }
+      .mat-form-field-infix{padding: 7px;}
+    }
+    mat-form-field.mat-form-field-should-float{
+      .mat-form-field-label {color: #0091ea;left: 0px;}
+    }
+  }
+
+  #searchbar {
+    width: 100%;
+    height: 50px;
+    background: #0091ea;
+    border-radius: 5px;
+    border: 3px solid #0091ea;
+
+    input {
+      height: 44px;
+      font-size: 20px;
+      outline: none;
+      padding: 10px;
+      border: none;
+      background: white;
+    }
+  }
+  #btn {
+    background: #0091ea;
+    height: 44px;
+    padding: 10px 15px;
+    color: white;
+    font-family: "helvetica";
+    cursor: pointer;
+    text-align: center;
+    line-height: 25px;
+    font-size: 16px;
+  }
+  .input-search{
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 12px 15px;
+    border: 2px solid #ccc;
+    outline : none;
+    transition: all linear 0.2s;
+    &:hover {
+      //border: 2px solid #0091ea;
+      background-color: rgba(255,255,255,1);
+      color: #333;
+    }
+    &::placeholder{color: #fff;transition: all linear 0.2s;}
+    &:hover::placeholder{color: #333;}
+  }
+
+  .home-bien{
+    transform: translateY(0px);
+    transition: all linear 0.1s;
+    > .row{
+      -webkit-box-shadow: 0 4px 6px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.08);
+      box-shadow: 0 4px 6px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.08);
+      overflow: hidden;
+      position: relative;
+    }
+    .bien-img{
+      height: 200px;
+    }
+    .bien-city{font-size: 13px;color: #333;padding-top: 5px;}
+    .bien-title{
+      font-size: 18px;
+    }
+    .fa-star{color: rgb(246, 171, 63);margin: 0 1px;}
+
+    .bien-prix{color: #0091ea;font-size: 30px;}
+    .offre{font-size: 12px;color: #fff;background-color: #0091ea;position: absolute; top: 30px;right: -30px;transform: rotate(45deg);padding: 2px;text-align: center;width: 150px;}
+    .note{color: #fff;border-radius: 50%;width: 30px;text-align: center;padding: 0;line-height: 30px;font-size: 14px;}
+    .note-8{background-color: #428500;}
+    .nb-avis{font-size: 13px;line-height: 30px;}
+    &:hover{
+      transform: translateY(-2px);
+    }
+  }
+}

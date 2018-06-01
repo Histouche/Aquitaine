@@ -1,3 +1,147 @@
-<p>
-  list-annonce works!
-</p>
+<form class="container-fluid page px-0" id="search">
+  <div class="home-background">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-12">
+          <div class="row h-100">
+            <h1 class="search-city text-center col-12 align-self-end">Hôtels à Bordeaux</h1>
+          </div>
+        </div>
+        <div class="home-form col-auto">
+          <div class="row m-0 justify-content-center">
+            <input class="col-11 col-md-6 mb-3 input-search" placeholder="Ex : Bordeaux" [(ngModel)]="query" id="search-input" name="name">
+            <button mat-button id="btn" [routerLink]="'/liste-annonce'" class="col-md-auto col-1" id="btn"><span class="d-none d-md-block">Trouver mon hôtel</span><i class="fa fa-search d-md-none" aria-hidden="true"></i></button>
+          </div>
+          <div class="row m-0 justify-content-center">
+            <div class="col-auto depart-retour-fields">
+              <div class="row m-0 justify-content-center">
+                <div class="col-auto px-1">
+                  <mat-form-field>
+                    <input matInput [matDatepicker]="pickerS" placeholder="Date de départ">
+                    <mat-datepicker-toggle matSuffix [for]="pickerS"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerS></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-auto px-1">
+                  <mat-form-field>
+                    <input matInput [matDatepicker]="pickerA" placeholder="Date d'arrivée">
+                    <mat-datepicker-toggle matSuffix [for]="pickerA"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerA></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-auto px-1">
+                  <mat-form-field>
+                    <mat-select placeholder="Type de chambre">
+                      <mat-option *ngFor="let group of groups" [value]="group.value">
+                        {{ group.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container list-annonce mt-3">
+      <div class="row">
+        <div class="col-auto filtres py-3">
+          <div class="row">
+            <div class="col-12 filtre-int mb-3 text-uppercase">Filtres</div>
+            <div class="col-12 filtre-int mb-3">Prix</div>
+            <div class="col-12">
+              <div class="row m-0 justify-content-between">
+                <section class="example-section col-12 px-0">
+                  <div class="row">
+                    <mat-form-field class="example-margin col-6">
+                      <input matInput type="number" #minV value="0" min="0" placeholder="P. min" [(ngModel)]="min">
+                    </mat-form-field>
+                    <mat-form-field class="example-margin col-6">
+                      <input matInput type="number" #maxV value="250"  placeholder="P. max" [(ngModel)]="max">
+                    </mat-form-field>
+                  </div>
+                </section>
+                <!--<div class="col-auto px-0">{{minV.value}}</div>
+                <div class="col-auto px-0">{{maxV.value}}</div>-->
+                <mat-slider class="prix-cursor py-0" #prix [thumb-label]="thumbLabel" [max]="maxV.value" [min]="minV.value" step="10" [(ngModel)]="price"></mat-slider>
+                <input type="hidden" [value]="prix.value" [(ngModel)]="price" name="prixA">
+              </div>
+            </div>
+            <div class="col-12 filtre-int mb-3">Avis des clients</div>
+            <div class="col-12">
+              <div class="row m-0 justify-content-between">
+                <div class="col-auto px-0">0</div>
+                <div class="col-auto px-0">10</div>
+                <mat-slider class="prix-cursor py-0" #note [thumb-label]="thumbLabel" (ngModel)="value" min="0" max="10" step="0.5"></mat-slider>
+                <input type="hidden" [value]="note.value" [(ngModel)]="noted" name="noteA">
+              </div>
+            </div>
+            <div class="col-12 filtre-int mb-3">Catégorie de l'hôtel</div>
+            <div class="col-12">
+              <div class="row justify-content-center">
+                <div class="col-12">
+                  <mat-checkbox>1 étoile</mat-checkbox>
+                </div>
+                <div class="col-12">
+                  <mat-checkbox>2 étoiles</mat-checkbox>
+                </div>
+                <div class="col-12">
+                  <mat-checkbox>3 étoiles</mat-checkbox>
+                </div>
+                <div class="col-12">
+                  <mat-checkbox>4 étoiles</mat-checkbox>
+                </div>
+                <div class="col-12">
+                  <mat-checkbox>5 étoiles</mat-checkbox>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+            <div class="row mx-0">
+              <div class="col-12 annonce-list-bien mb-2" *ngFor="let annonce of annonceList | searchPipe: query" [routerLink]="'/annonce'">
+                  <div class="row mx-0">
+                    <div class="col-3 bien-img" [style.background-image]=" annonce.imgMiniature ? 'url('+annonce.imgMiniature+')' : 'url(\'../../assets/img/home-background.jpg\')'" style="background-position:center;background-size: cover;">
+                    </div>
+                    <div class="col p-3">
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="row">
+                            <div class="col-12 bien-city"><i class="fa fa-map-marker" aria-hidden="true"></i> {{annonce.ville}}</div>
+                            <div class="col-12 bien-title">{{annonce.titleAnnonce}}</div>
+                            <!--<div class="bien-stars col-12 mb-1">
+                              <div class="row m-0">
+                                <i class="fa fa-star" aria-hidden="true" *ngIf="annonce.etoile >= 1 "></i>
+                                <i class="fa fa-star" aria-hidden="true" *ngIf="annonce.etoile >= 2 "></i>
+                                <i class="fa fa-star" aria-hidden="true" *ngIf="annonce.etoile >= 3 "></i>
+                                <i class="fa fa-star" aria-hidden="true" *ngIf="annonce.etoile >= 4 "></i>
+                                <i class="fa fa-star" aria-hidden="true" *ngIf="annonce.etoile >= 5 "></i>
+                              </div>
+                            </div>-->
+                            <div class="col-12 mb-2">
+                              <div class="row m-0">
+                                <div class="note note-8 col-auto">{{annonce.note}}</div>
+                                <div class="col px-2 nb-avis">({{annonce.nbAvis}} avis)</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="row h-100 justify-content-end">
+                            <div class="col-12 text-right">
+                              {{annonce.prix}} €
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</form>

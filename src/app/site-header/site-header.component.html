@@ -1,3 +1,24 @@
-<p>
-  site-header works!
-</p>
+<div class="header">
+  <div class="container p-0">
+    <div class="row">
+      <div id="logo" class="col-1"></div>
+      <div id="menu_home" [routerLink]="['/']" (click)="select('home')" [class]="selection=='home'? 'select col-auto px-2 cliquable d-none d-lg-block h-link' : 'noselect col-auto px-2 cliquable d-none d-lg-block h-link'">
+        <div class="buttn">
+          <a [routerLink]="['/']">Accueil</a>
+        </div>
+      </div>
+      <div id="liste-annonce"  (click)="select('home')" [class]="selection=='home'? 'select col-auto px-2 cliquable d-none d-lg-block h-link' : 'noselect col-auto px-2 cliquable d-none d-lg-block h-link'">
+        <div class="buttn">
+          <a [routerLink]="'/liste-annonce'">Liste des annonces</a>
+        </div>
+      </div>
+      <div class="col user-head">
+          <div class="row justify-content-end h-100">
+            <a [routerLink]="'/app-connexion'" class="col-auto cliquable align-self-center">
+              <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            </a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

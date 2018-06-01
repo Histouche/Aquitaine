@@ -1,0 +1,70 @@
+<div class="container-fluid page px-0">
+  <div class="home-background">
+    <div class="container h-100">
+      <div class="row align-items-center h-100">
+        <form class="home-form col-auto">
+          <div class="row m-0 justify-content-center">
+            <input class="col-12 col-md-8 mb-3 input-search" placeholder="Ex : Bordeaux">
+          </div>
+          <div class="row justify-content-center">
+            <button mat-button id="btn" [routerLink]="'/liste-annonce'" class="col-auto" id="btn">Trouver mon hôtel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid last-annonces py-5">
+  <div class="container">
+    <div class="row">
+      <h2 class="col-12 p-0">Nos dernières annonces</h2>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div *ngFor="let annonce of annonceList" class="col-4 p-3">
+            <div class="row">
+              <div class="col-12 home-bien p-2" [routerLink]="'/annonce'">
+                <div class="row h-100 m-0">
+                  <div class="col-12 bien-img" style="background: url('https://imgio.trivago.com/itemimages/12/33/12330_v9_isq@2x.jpeg') center no-repeat;background-size: cover;"></div>
+                  <div class="offre col-auto">Economisez 15%</div>
+                  <div class="col-12 bien-city"><i class="fa fa-map-marker" aria-hidden="true"></i> Bordeaux</div>
+                  <div class="col-12 bien-title">Pullman Bordeaux Lac</div>
+                  <div class="col-6 bien-infos">
+                    <div class="row">
+                      <div class="bien-stars col-12 mb-1">
+                        <div class="row m-0">
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                      <div class="col-12 mb-2">
+                        <div class="row m-0">
+                          <div class="note note-8 col-auto">8</div>
+                          <div class="col px-2 nb-avis">(5 avis)</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="row">
+                      <div class="col-12 bien-prix">
+                        <div class="row h-100 justify-content-end">
+                          <div class="col-12 text-right">
+                            50 €
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hover-effect"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
