@@ -14,9 +14,31 @@
       </div>
       <div class="col user-head">
           <div class="row justify-content-end h-100">
-            <a [routerLink]="'/app-connexion'" class="col-auto cliquable align-self-center">
+            <button mat-icon-button [matMenuTriggerFor]="menu" class="col-auto cliquable align-self-center">
               <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-            </a>
+            </button>
+            <mat-menu #menu="matMenu">
+              <a *ngIf="isConnected" mat-menu-item [routerLink]="'/user'">
+                <mat-icon>face</mat-icon>
+                <span>Mon compte</span>
+              </a>
+              <a *ngIf="!isConnected" mat-menu-item [routerLink]="'/user'">
+                <mat-icon>face</mat-icon>
+                <span>Se connecter</span>
+              </a>
+              <a *ngIf="!isConnected" mat-menu-item [routerLink]="'/user'">
+                <mat-icon>face</mat-icon>
+                <span>S'inscrire</span>
+              </a>
+              <button *ngIf="isConnected" mat-menu-item>
+                <mat-icon>shopping_cart</mat-icon>
+                <span>Mes réservations</span>
+              </button>
+              <button *ngIf="isConnected" mat-menu-item>
+                <mat-icon>clear</mat-icon>
+                <span>Déconnexion</span>
+              </button>
+            </mat-menu>
           </div>
       </div>
     </div>

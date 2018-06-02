@@ -114,7 +114,8 @@ import { UserPageComponent } from './user-page/user-page.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full'},
       { path: 'liste-annonce', component: ListAnnonceComponent, pathMatch: 'full'},
-      { path: 'annonce', component: AnnonceComponent, pathMatch: 'full'}
+      { path: 'annonce', component: AnnonceComponent, pathMatch: 'full'},
+      { path: 'user', component: UserPageComponent, pathMatch: 'full'}
     ])
   ],
   providers: [

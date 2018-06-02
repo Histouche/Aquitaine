@@ -2,10 +2,10 @@ app-site-header{
 
   .header{
     .user-head{color: #fff;font-size: 24px;cursor: pointer;transition: all linear .2s;}
-    a{color: #fff;}
+    button{color: #fff;font-size: 24px;}
     &.scrolled{
-      .user-head a{color: #333;}
+      .user-head button{color: #333;}
     }
   }
-
+  button:hover{color: initial !important;}
 }
