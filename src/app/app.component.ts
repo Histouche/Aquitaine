@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import 'hammerjs';
-/*import { UserService } from './services/user.service';*/
+// import { UserService } from './services/user.service';
 import { ApiService } from './services/api.service';
 import {AnnonceInterface} from './interfaces/annonce-interface';
 import { VariablesService } from './services/variables.service';
@@ -26,30 +26,24 @@ export class AppComponent implements OnInit {
   title = 'app';
   _annoncesArray: AnnonceInterface[];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private variables: VariablesService/*, private localStorageService: LocalStorageService*/, private router: Router, /* private userService: UserService, private update: UpdateService*/) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private variables: VariablesService,/* private localStorageService: LocalStorageService,*/ private router: Router/*,private userService: UserService, private update: UpdateService*/) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         this.loading = true;
         this.variables.setLoading(true);
         /*console.log("verif token", this.localStorageService.get('id_token'));*/
-        /*if (!this.userService.loggedIn()) {
-          this.userService.logout().subscribe((data) => {
-          }),
-            (err) => {
-              console.log(err);
-            };
-        }*/
-      }
-      /*if (event instanceof NavigationEnd) {
-        if (isPlatformBrowser(this.platformId)) {
-          ga('set', 'page', event.urlAfterRedirects);
-          ga('send', 'pageview');
+
+        if (event instanceof NavigationEnd) {
+          if (isPlatformBrowser(this.platformId)) {
+            ga('set', 'page', event.urlAfterRedirects);
+            ga('send', 'pageview');
+          }
+          this.variables.setLoading(false);
+          this.loading = false;
         }
-        this.variables.setLoading(false);
-        this.loading = false;
-      }*/
-      /*console.log("router event start", event instanceof NavigationStart);
-      console.log("router event end", event instanceof NavigationEnd);*/
+        /*console.log("router event start", event instanceof NavigationStart);
+        console.log("router event end", event instanceof NavigationEnd);*/
+      }
     });
   }
 

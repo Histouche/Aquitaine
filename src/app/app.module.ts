@@ -46,7 +46,7 @@ import {
   MatPaginatorIntl,
 } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { UserService } from './services/user.service';
+// import { UserService } from './services/user.service';
 import { VariablesService } from './services/variables.service';
 import { LinkService } from './services/link.service';
 
@@ -118,7 +118,7 @@ import { UserPageComponent } from './user-page/user-page.component';
     ])
   ],
   providers: [
-    UserService,
+    // UserService,
     LinkService ,
     VariablesService,
     [Http]
