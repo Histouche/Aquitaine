@@ -134,7 +134,22 @@
                     </div>
                     <div class="col p-3">
                       <div class="row">
-                        <div class="col-12 col-md-6">
+                        <div class="col-md-4">
+                          <div class="row h-100 justify-content-end">
+                            <div class="col-12 text-center prix">
+                              {{annonce.prix}} €
+                            </div>
+                            <div class="col-12 text-center prixAP">
+                              {{annonce.prixAP}} €
+                            </div>
+                            <div class="col-12">
+                              <div class="row justify-content-center">
+                                <a [routerLink]="" mat-raised-button color="primary" class="offre-btn">Voir l'offre</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-8">
                           <div class="row">
                             <div class="col-12 bien-city"><i class="fa fa-map-marker" aria-hidden="true"></i> {{annonce.ville}}</div>
                             <div class="col-12 bien-title">{{annonce.titleAnnonce}}</div>
@@ -149,19 +164,24 @@
                             </div>-->
                             <div class="col-12 mb-2">
                               <div class="row m-0">
-                                <div class="note note-8 col-auto">{{annonce.note}}</div>
+                                <div class="note col-auto"
+                                     [class.note-0]="annonce.note === 0"
+                                     [class.note-1]="annonce.note === 1"
+                                     [class.note-2]="annonce.note === 2"
+                                     [class.note-3]="annonce.note === 3"
+                                     [class.note-4]="annonce.note === 4"
+                                     [class.note-5]="annonce.note === 5"
+                                     [class.note-6]="annonce.note === 6"
+                                     [class.note-7]="annonce.note === 7"
+                                     [class.note-8]="annonce.note === 8"
+                                     [class.note-9]="annonce.note === 9"
+                                     [class.note-10]="annonce.note === 10">{{annonce.note}}</div>
                                 <div class="col px-2 nb-avis">({{annonce.nbAvis}} avis)</div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-6">
-                          <div class="row h-100 justify-content-end">
-                            <div class="col-12 text-right">
-                              {{annonce.prix}} €
-                            </div>
-                          </div>
-                        </div>
+
                       </div>
                     </div>
                   </div>

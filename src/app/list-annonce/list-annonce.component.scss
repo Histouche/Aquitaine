@@ -93,6 +93,32 @@ app-list-annonce{
     background-color: #fff;
     padding: 0px;
     cursor : pointer;
+    .prix{
+      margin-top: 10px;
+      text-decoration: line-through;
+      font-size: 20px;
+      line-height: 20px;
+    }
+    .prixAP{
+      font-size: 30px;
+      line-height: 34px;
+      color: #0091ea;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .offre-btn{
+      background-color: #0091ea;
+      padding : 0 25px;
+    }
+    .note{
+      color: #fff;
+      border-radius: 50%;
+      width: 30px;
+      text-align: center;
+      padding: 0;
+      line-height: 30px;
+      font-size: 14px;
+    }
   }
 
   .mat-slider-track-background{background-color: #0091ea !important; }
