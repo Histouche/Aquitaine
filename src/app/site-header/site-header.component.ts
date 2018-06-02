@@ -18,13 +18,24 @@ export class SiteHeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    $(window).on('scroll touchmove', function(){
-      if ($(window).scrollTop() >= 1) {
-        $('.header').addClass('scrolled');
-      } else {
-        $('.header').removeClass('scrolled');
-      }
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      $(window).on('scroll touchmove', function () {
+        if ($(window).scrollTop() >= 1) {
+          $('.header').addClass('scrolled');
+        } else {
+          $('.header').removeClass('scrolled');
+        }
+      });
+      $('.ion-ios-navicon').on('click', function() {
+        $('.sidebar').addClass('active');
+        $('.sidebar-overlay').addClass('fadeIn');
+      });
+      $('.sidebar-overlay').on('click', function() {
+        $('.sidebar-overlay').removeClass('fadeIn');
+        $('.sidebar-overlay').addClass('fadeOut');
+        $('.sidebar').removeClass('active');
+      });
+    }
   }
 
   select(item) {
