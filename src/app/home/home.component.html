@@ -4,6 +4,7 @@
       <div class="row align-items-center h-100">
         <form class="home-form col-auto">
           <div class="row m-0 justify-content-center">
+            <h1 class="col-12 text-center color-w mb-5">Une nuit dans l'Aquitaine ?</h1>
             <input class="col-12 col-md-8 mb-3 input-search" placeholder="Ex : Bordeaux">
           </div>
           <div class="row justify-content-center">
@@ -22,7 +23,7 @@
     <div class="row">
       <div class="col-12">
         <div class="row">
-          <div *ngFor="let annonce of annonceList" class="col-4 p-3">
+          <div *ngFor="let annonce of annonceList" class="col-12 col-md-4 p-3">
             <div class="row">
               <div class="col-12 home-bien p-2" [routerLink]="'/annonce'">
                 <div class="row h-100 m-0">

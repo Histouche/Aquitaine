@@ -10,12 +10,12 @@
         <div class="home-form col-auto">
           <div class="row m-0 justify-content-center">
             <input class="col-11 col-md-6 mb-3 input-search" placeholder="Ex : Bordeaux" [(ngModel)]="query" id="search-input" name="name">
-            <button mat-button id="btn" [routerLink]="'/liste-annonce'" class="col-md-auto col-1" id="btn"><span class="d-none d-md-block">Trouver mon hôtel</span><i class="fa fa-search d-md-none" aria-hidden="true"></i></button>
+            <button mat-button id="btn" [routerLink]="'/liste-annonce'" class="col-auto" id="btn"><span>Trouver mon hôtel</span></button>
           </div>
           <div class="row m-0 justify-content-center">
             <div class="col-auto depart-retour-fields">
               <div class="row m-0 justify-content-center">
-                <div class="col-auto px-1">
+                <!--<div class="col-auto px-1">
                   <mat-form-field>
                     <input matInput [matDatepicker]="pickerS" placeholder="Date de départ">
                     <mat-datepicker-toggle matSuffix [for]="pickerS"></mat-datepicker-toggle>
@@ -28,8 +28,8 @@
                     <mat-datepicker-toggle matSuffix [for]="pickerA"></mat-datepicker-toggle>
                     <mat-datepicker #pickerA></mat-datepicker>
                   </mat-form-field>
-                </div>
-                <div class="col-auto px-1">
+                </div>-->
+                <div class="col-auto mt-3 mt-md-0 px-1">
                   <mat-form-field>
                     <mat-select placeholder="Type de chambre">
                       <mat-option *ngFor="let group of groups" [value]="group.value">
@@ -47,12 +47,19 @@
   </div>
   <div class="container list-annonce mt-3">
       <div class="row">
-        <div class="col-auto filtres py-3">
+        <div class="col-md-auto col-12 filtres py-3">
           <div class="row">
+            <div class="col-12 d-md-none">
+              <div class="row justify-content-end">
+                <button mat-button color="primary" class="close-filtres color-w"><mat-icon>close</mat-icon></button>
+              </div>
+            </div>
             <div class="col-12 filtre-int mb-3 text-uppercase">Filtres</div>
-            <div class="col-12 filtre-int mb-3">Prix</div>
-            <div class="col-12">
-              <div class="row m-0 justify-content-between">
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Prix</mat-panel-title>
+                </mat-expansion-panel-header>
                 <section class="example-section col-12 px-0">
                   <div class="row">
                     <mat-form-field class="example-margin col-6">
@@ -63,41 +70,60 @@
                     </mat-form-field>
                   </div>
                 </section>
-                <!--<div class="col-auto px-0">{{minV.value}}</div>
-                <div class="col-auto px-0">{{maxV.value}}</div>-->
                 <mat-slider class="prix-cursor py-0" #prix [thumb-label]="thumbLabel" [max]="maxV.value" [min]="minV.value" step="10" [(ngModel)]="price"></mat-slider>
                 <input type="hidden" [value]="prix.value" [(ngModel)]="price" name="prixA">
-              </div>
-            </div>
-            <div class="col-12 filtre-int mb-3">Avis des clients</div>
-            <div class="col-12">
-              <div class="row m-0 justify-content-between">
-                <div class="col-auto px-0">0</div>
-                <div class="col-auto px-0">10</div>
-                <mat-slider class="prix-cursor py-0" #note [thumb-label]="thumbLabel" (ngModel)="value" min="0" max="10" step="0.5"></mat-slider>
-                <input type="hidden" [value]="note.value" [(ngModel)]="noted" name="noteA">
-              </div>
-            </div>
-            <div class="col-12 filtre-int mb-3">Catégorie de l'hôtel</div>
-            <div class="col-12">
-              <div class="row justify-content-center">
+              </mat-expansion-panel>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Services</mat-panel-title>
+                </mat-expansion-panel-header>
                 <div class="col-12">
-                  <mat-checkbox>1 étoile</mat-checkbox>
+                  <div class="row">
+                    <mat-checkbox class="col-12 px-0">Wi-Fi gratuit</mat-checkbox>
+                    <mat-checkbox class="col-12 px-0">Petit dejeuner inclus</mat-checkbox>
+                    <mat-checkbox class="col-12 px-0">Piscine</mat-checkbox>
+                    <mat-checkbox class="col-12 px-0">Parking gratuit</mat-checkbox>
+                    <mat-checkbox class="col-12 px-0">Restaurant</mat-checkbox>
+                    <mat-checkbox class="col-12 px-0">Climatisé</mat-checkbox>
+                    <mat-checkbox class="col-12 px-0">Animaux autorisés</mat-checkbox>
+                    <mat-checkbox class="col-12 px-0">Hôtel non-fumeur</mat-checkbox>
+                    <mat-checkbox class="col-12 px-0">Accès handicapé</mat-checkbox>
+                  </div>
                 </div>
+              </mat-expansion-panel>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Avis des clients</mat-panel-title>
+                </mat-expansion-panel-header>
                 <div class="col-12">
-                  <mat-checkbox>2 étoiles</mat-checkbox>
+                  <div class="row justify-content-between">
+                    <div class="col-auto px-0">0</div>
+                    <div class="col-auto px-0">10</div>
+                    <mat-slider class="prix-cursor py-0" #note [thumb-label]="thumbLabel" (ngModel)="value" min="0" max="10" step="0.5"></mat-slider>
+                    <input type="hidden" [value]="note.value" [(ngModel)]="noted" name="noteA">
+                  </div>
                 </div>
+              </mat-expansion-panel>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Catégorie</mat-panel-title>
+                </mat-expansion-panel-header>
                 <div class="col-12">
-                  <mat-checkbox>3 étoiles</mat-checkbox>
+                  <div class="row justify-content-center">
+                    <mat-checkbox class="col-12 px-0">1 étoile</mat-checkbox>
+                    <mat-checkbox class="col-12 px-0">2 étoiles</mat-checkbox>
+                    <mat-checkbox class="col-12 px-0">3 étoiles</mat-checkbox>
+                    <mat-checkbox class="col-12 px-0">4 étoiles</mat-checkbox>
+                    <mat-checkbox class="col-12 px-0">5 étoiles</mat-checkbox>
+                  </div>
                 </div>
-                <div class="col-12">
-                  <mat-checkbox>4 étoiles</mat-checkbox>
-                </div>
-                <div class="col-12">
-                  <mat-checkbox>5 étoiles</mat-checkbox>
-                </div>
-              </div>
-            </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </div>
+        <div class="col-12 d-md-none">
+          <div class="row justify-content-center">
+            <button mat-raised-button color="primary" class="mb-3 affiner-recherche">Affiner la recherche <mat-icon>keyboard_arrow_down</mat-icon></button>
           </div>
         </div>
         <div class="col">
@@ -108,7 +134,7 @@
                     </div>
                     <div class="col p-3">
                       <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                           <div class="row">
                             <div class="col-12 bien-city"><i class="fa fa-map-marker" aria-hidden="true"></i> {{annonce.ville}}</div>
                             <div class="col-12 bien-title">{{annonce.titleAnnonce}}</div>

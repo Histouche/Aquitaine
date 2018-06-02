@@ -1,8 +1,9 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID, ViewEncapsulation} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AnnonceInterface} from '../interfaces/annonce-interface';
 import {DataService} from '../services/data.service';
 import { SearchPipe } from '../pipes/search-pipe.pipe';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
 @Component({
   selector: 'app-list-annonce',
@@ -28,10 +29,18 @@ export class ListAnnonceComponent implements OnInit {
   annonceList: any[] = [];
 
 
-  constructor() {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
   }
 
   ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      $('.affiner-recherche').on('click', function () {
+          $('.filtres').addClass('open');
+      });
+      $('.close-filtres').on('click', function () {
+        $('.filtres').removeClass('open');
+      })
+    }
     this.annonceList = [
       {
         'titleAnnonce': 'Pullman Bordeaux Lac',
