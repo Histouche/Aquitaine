@@ -63,7 +63,7 @@
           </div>
           <div class="col-12">
             <div class="row justify-content-center">
-              <button mat-raised-button color="primary" class="col-auto mb-3">
+              <button mat-raised-button color="primary" class="col-auto mb-3" data-toggle="modal" data-target="#modalReservation">
                 Réserver
               </button>
             </div>
@@ -91,12 +91,14 @@
               </div>
               <div class="col-12">
                 <div class="row">
-                  <div class="col-12 comment"></div>
+                  <div class="col-12 comment">
+
+                  </div>
                 </div>
               </div>
               <div class="col-12">
                 <div class="row justify-content-center">
-                  <button class="col-auto mb-3" mat-raised-button color="primary">Voir tous les commentaires</button>
+                  <button class="col-auto mb-3" mat-raised-button color="primary" data-toggle="modal" data-target="#modalComment">Voir tous les commentaires</button>
                 </div>
               </div>
             </div>
@@ -135,7 +137,7 @@
     <div class="row">
       <div class="col-12">
         <div class="row">
-          <div *ngFor="let annonce of annonceList" class="col-4 p-3">
+          <div *ngFor="let annonce of annonceList" class="col-12 col-md-4 p-3">
             <div class="row">
               <div class="col-12 home-bien p-2" [routerLink]="'/annonce'">
                 <div class="row h-100 m-0">
@@ -177,6 +179,46 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Commentaire -->
+<div class="modal fade" id="modalComment" tabindex="-1" role="dialog" aria-labelledby="modalComment" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Commentaires</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-primary">Ajouter un com.</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Réservation -->
+<div class="modal fade" id="modalReservation" tabindex="-1" role="dialog" aria-labelledby="modalReservation" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Réservation pour {{titleAnnonce}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary">Suivant </button>
       </div>
     </div>
   </div>

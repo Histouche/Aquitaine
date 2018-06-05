@@ -1,4 +1,6 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, Inject, PLATFORM_ID} from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
 @Component({
   selector: 'app-annonce',
@@ -28,8 +30,9 @@ export class AnnonceComponent implements OnInit {
   nbHotelVille: any = 177;
   annoncePrix: any = 50;
   nbAvis: any = 8;
+  dateDepart = '';
+  dateRetour = '';
 
-  /**/
   groups = [
     {value: 'chambre-simple', viewValue: 'Chambre simple'},
     {value: 'chambre-double', viewValue: 'Chambre double'},
@@ -49,7 +52,11 @@ export class AnnonceComponent implements OnInit {
       'name': 'https://imgio.trivago.com/itemimages/12/33/12330_v9_isq@2x.jpeg'
     }
   ];
-  constructor() { }
+  constructor(public dialog: MatDialog, @Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+
+    }
+  }
 
   ngOnInit() {
   }
