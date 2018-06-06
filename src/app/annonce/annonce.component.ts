@@ -30,8 +30,9 @@ export class AnnonceComponent implements OnInit {
   nbHotelVille: any = 177;
   annoncePrix: any = 50;
   nbAvis: any = 8;
-  dateDepart = '';
-  dateRetour = '';
+  dateDepart: Date;
+  dateRetour: Date ;
+  typeChambre = '';
 
   groups = [
     {value: 'chambre-simple', viewValue: 'Chambre simple'},
@@ -54,11 +55,13 @@ export class AnnonceComponent implements OnInit {
   ];
   constructor(public dialog: MatDialog, @Inject(PLATFORM_ID) private platformId: Object) {
     if (isPlatformBrowser(this.platformId)) {
-
+     
     }
   }
 
   ngOnInit() {
   }
+
+
 
 }
