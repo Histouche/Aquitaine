@@ -130,29 +130,26 @@
             <div class="row mx-0">
               <div class="col-12 annonce-list-bien mb-2" *ngFor="let annonce of annonceList | searchPipe: query" [routerLink]="'/annonce'">
                   <div class="row mx-0">
-                    <div class="col-3 bien-img" [style.background-image]=" annonce.imgMiniature ? 'url('+annonce.imgMiniature+')' : 'url(\'../../assets/img/home-background.jpg\')'" style="background-position:center;background-size: cover;">
+                    <div class="col-12 col-md-3 bien-img" [style.background-image]=" annonce.imgMiniature ? 'url('+annonce.imgMiniature+')' : 'url(\'../../assets/img/home-background.jpg\')'" style="background-position:center;background-size: cover;">
                     </div>
                     <div class="col p-3">
                       <div class="row">
+                        <div class="col-12 bien-title mb-2">{{annonce.titleAnnonce}}</div>
                         <div class="col-md-4">
-                          <div class="row h-100 justify-content-end">
-                            <div class="col-12 text-center prix">
+                          <div class="row h-100 ">
+                            <!--<div class="col-12 text-center prix">
                               {{annonce.prix}} €
-                            </div>
-                            <div class="col-12 text-center prixAP">
+                            </div>-->
+                            <div class="col-12 text-center prixAP align-self-center">
                               {{annonce.prixAP}} €
                             </div>
-                            <div class="col-12">
-                              <div class="row justify-content-center">
-                                <a [routerLink]="" mat-raised-button color="primary" class="offre-btn">Voir l'offre</a>
-                              </div>
-                            </div>
+
                           </div>
                         </div>
-                        <div class="col-12 col-md-8">
+                        <div class="col-6 col-md-4">
                           <div class="row">
                             <div class="col-12 bien-city"><i class="fa fa-map-marker" aria-hidden="true"></i> {{annonce.ville}}</div>
-                            <div class="col-12 bien-title">{{annonce.titleAnnonce}}</div>
+
                             <!--<div class="bien-stars col-12 mb-1">
                               <div class="row m-0">
                                 <i class="fa fa-star" aria-hidden="true" *ngIf="annonce.etoile >= 1 "></i>
@@ -179,6 +176,16 @@
                                 <div class="col px-2 nb-avis">({{annonce.nbAvis}} avis)</div>
                               </div>
                             </div>
+                            <div class="col-12 options">
+                              <div class="row m-0">
+                                <i class="fa fa-coffee" aria-hidden="true" title="restaurant"></i><i class="fa fa-wifi" aria-hidden="true" title="wi-fi à l'intérieur"></i><i class="fa fa-car" aria-hidden="true" title="parking  "></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                          <div class="row h-100">
+                            <a [routerLink]="" mat-raised-button color="primary" class="offre-btn align-self-center col-auto">Voir l'offre</a>
                           </div>
                         </div>
 

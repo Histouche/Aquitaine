@@ -39,7 +39,8 @@ export class ListAnnonceComponent implements OnInit {
       });
       $('.close-filtres').on('click', function () {
         $('.filtres').removeClass('open');
-      })
+      });
+      $('.sidebar').removeClass('active');
     }
     this.annonceList = [
       {

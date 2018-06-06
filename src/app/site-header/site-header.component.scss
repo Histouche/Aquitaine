@@ -67,7 +67,8 @@ app-site-header{
   }
 
   .sidebar .sidebar-content {
-    width: 80%;
+    // width: 80%;
+    width: 260px;
     color: #333;
     padding: 15px;
     z-index: 9999;
@@ -88,12 +89,15 @@ app-site-header{
   .sidebar .sidebar-content .top-head .name {
     font-size: 24px;
     font-weight: 400;
-    margin-bottom: 5px
+    margin-bottom: 5px;
+    line-height: 26px;
   }
 
   .sidebar .sidebar-content .top-head .email {
     font-size: 13px;
-    margin-bottom: 50px
+    padding-bottom: 15px;
+    border-bottom: 2px solid #0091ea;
+    margin-bottom: 35px
   }
 
   .sidebar .sidebar-content .nav-left>a {
@@ -118,5 +122,8 @@ app-site-header{
       padding-top: 8px !important;
       padding-bottom: 8px;
     }
+  }
+  .mat-menu-item .mat-icon{
+    color: #0091ea !important;
   }
 }
