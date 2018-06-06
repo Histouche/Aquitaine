@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { ListAnnonceComponent } from '../list-annonce/list-annonce.component';
+import { Data, DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,8 @@ import { ListAnnonceComponent } from '../list-annonce/list-annonce.component';
 })
 export class HomeComponent implements OnInit {
 
+  public datas;
+  users;
   annonceList: any[] = [
     {
       'name': 'https://imgio.trivago.com/itemimages/12/33/12330_v9_isq@2x.jpeg'
@@ -22,14 +25,22 @@ export class HomeComponent implements OnInit {
     }
   ];
 
+  constructor(private router: Router, private _dataService: DataService) {
 
-  constructor(private router: Router) {}
-
+  }
   ngOnInit() {
+    this._dataService.getJSON().subscribe(data => {
+      console.log(data);
+      this.datas = data;
+    });
   }
 
   search() {
     this.router.navigate([]);
+  }
+
+  objectKeys(obj) {
+    return Object.keys(obj);
   }
 
 }

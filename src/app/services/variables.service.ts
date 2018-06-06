@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class VariablesService {
+  name = '';
+  password = '';
+  email = '';
+  isConnected = false;
+  points = 0;
   titre: String;
   sousTitre: String;
   page: String;
@@ -18,6 +23,41 @@ export class VariablesService {
   constructor() {
 
   }
+  /* connexion variables */
+  getName() {
+    return this.isConnected;
+  }
+  setName(isConnected) {
+    this.isConnected = isConnected;
+  }
+  getPassword() {
+    return this.isConnected;
+  }
+  setPassword(isConnected) {
+    this.isConnected = isConnected;
+  }
+  getEmail() {
+    return this.email;
+  }
+  setEmail(email) {
+    this.email = email;
+  }
+  getConnected() {
+    return this.isConnected;
+  }
+  setConnected(isConnected) {
+    this.isConnected = isConnected;
+  }
+  getPoints() {
+    return this.points;
+  }
+  setPoints(points) {
+    this.points = points;
+  }
+
+
+
+
 
   getSignalId() {
     return this.signalId;

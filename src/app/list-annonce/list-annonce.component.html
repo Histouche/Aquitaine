@@ -128,27 +128,27 @@
         </div>
         <div class="col">
             <div class="row mx-0">
-              <div class="col-12 annonce-list-bien mb-2" *ngFor="let annonce of annonceList | searchPipe: query" [routerLink]="'/annonce'">
+              <div class="col-12 annonce-list-bien mb-2" *ngFor="let annonce of annonces | searchPipe: query" [routerLink]="'/annonce'">
                   <div class="row mx-0">
-                    <div class="col-12 col-md-3 bien-img" [style.background-image]=" annonce.imgMiniature ? 'url('+annonce.imgMiniature+')' : 'url(\'../../assets/img/home-background.jpg\')'" style="background-position:center;background-size: cover;">
+                    <div class="col-12 col-md-3 bien-img" [style.background-image]=" annonce.image1 ? 'url('+annonce.image1+')' : 'url(\'../../assets/img/home-background.jpg\')'" style="background-position:center;background-size: cover;">
                     </div>
                     <div class="col p-3">
                       <div class="row">
-                        <div class="col-12 bien-title mb-2">{{annonce.titleAnnonce}}</div>
+                        <div class="col-12 bien-title mb-2">{{annonce.nom}}</div>
                         <div class="col-md-4">
                           <div class="row h-100 ">
                             <!--<div class="col-12 text-center prix">
                               {{annonce.prix}} €
                             </div>-->
                             <div class="col-12 text-center prixAP align-self-center">
-                              {{annonce.prixAP}} €
+                              {{annonce.prix}} €
                             </div>
 
                           </div>
                         </div>
                         <div class="col-6 col-md-4">
                           <div class="row">
-                            <div class="col-12 bien-city"><i class="fa fa-map-marker" aria-hidden="true"></i> {{annonce.ville}}</div>
+                            <div class="col-12 bien-city"><i class="fa fa-map-marker" aria-hidden="true"></i> {{annonce.hotel.ville.nom}}</div>
 
                             <!--<div class="bien-stars col-12 mb-1">
                               <div class="row m-0">
@@ -159,7 +159,7 @@
                                 <i class="fa fa-star" aria-hidden="true" *ngIf="annonce.etoile >= 5 "></i>
                               </div>
                             </div>-->
-                            <div class="col-12 mb-2">
+                            <!--<div class="col-12 mb-2">
                               <div class="row m-0">
                                 <div class="note col-auto"
                                      [class.note-0]="annonce.note === 0"
@@ -175,10 +175,21 @@
                                      [class.note-10]="annonce.note === 10">{{annonce.note}}</div>
                                 <div class="col px-2 nb-avis">({{annonce.nbAvis}} avis)</div>
                               </div>
+                            </div>-->
+                            <div class="col-12 mb-2">
+                              <div class="row m-0 text-center">
+                                    {{annonce.nbmcarre}} m²
+                              </div>
                             </div>
                             <div class="col-12 options">
                               <div class="row m-0">
-                                <i class="fa fa-coffee" aria-hidden="true" title="restaurant"></i><i class="fa fa-wifi" aria-hidden="true" title="wi-fi à l'intérieur"></i><i class="fa fa-car" aria-hidden="true" title="parking  "></i>
+                                <i *ngIf="annonce.animal===true" class="fa fa-github-alt" title="animaux autorisés" aria-hidden="true"></i>
+                                <i *ngIf="annonce.douche===true" class="fa fa-shower" title="douche" aria-hidden="true"></i>
+                                <i *ngIf="annonce.baignoire===true" class="fa fa-bath" title="baignoire" aria-hidden="true"></i>
+                                <i class="fa fa-coffee" aria-hidden="true" title="restaurant"></i>
+                                <i *ngIf="annonce.wifi===true" class="fa fa-wifi" aria-hidden="true" title="wi-fi à l'intérieur"></i>
+                                <i *ngIf="annonce.tv===true" class="fa fa-television" aria-hidden="true"></i>
+                                <i *ngIf="annonce.telephone===true" class="fa fa-phone" aria-hidden="true"></i>
                               </div>
                             </div>
                           </div>

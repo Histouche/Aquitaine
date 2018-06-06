@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { SiteHeaderComponent } from './site-header/site-header.component';
@@ -48,6 +49,7 @@ import {
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 // import { UserService } from './services/user.service';
 import { VariablesService } from './services/variables.service';
+import { DataService } from './services/data.service';
 import { LinkService } from './services/link.service';
 
 import { SlickModule } from 'ngx-slick';
@@ -73,7 +75,7 @@ import { UserPageComponent } from './user-page/user-page.component';
     UserPageComponent
   ],
   imports: [
-    [BrowserAnimationsModule],
+    [BrowserAnimationsModule, HttpClientModule],
     BrowserModule,
     MatAutocompleteModule,
     MatButtonModule,
@@ -121,6 +123,7 @@ import { UserPageComponent } from './user-page/user-page.component';
   providers: [
     // UserService,
     LinkService ,
+    DataService,
     VariablesService,
     [Http]
   ],

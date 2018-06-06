@@ -221,10 +221,10 @@
               Ces informations sont-elles correctes ?
             </div>
             <div class="col-12 mb-2">
-              <strong>Date de départ :</strong> {{dateDepart}}
+              <strong>Date de départ :</strong> {{dateDepart | date:'dd/MM/yyyy'}}
             </div>
             <div class="col-12 mb-2">
-              <strong>Date de retour : </strong>{{dateRetour}}
+              <strong>Date de retour : </strong>{{dateRetour | date:'dd/MM/yyyy'}}
             </div>
             <div class="col-12 mb-2">
               <strong>Type de chambre :</strong> {{typeChambre}}

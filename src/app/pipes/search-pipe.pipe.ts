@@ -18,7 +18,7 @@ export class SearchPipe implements PipeTransform {
     }
     // filtre par titre d'annonce
     return annonces.filter(function (annonce) {
-      return annonce.titleAnnonce.toLowerCase().includes(query.toLowerCase());
+      return annonce.annonce.hotel.ville.nom.toLowerCase().includes(query.toLowerCase());
     });
   }
 

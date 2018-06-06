@@ -1,7 +1,19 @@
 import { Component, OnInit, ViewEncapsulation, PLATFORM_ID, Inject, Injectable } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { VariablesService} from '../services/variables.service';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
+import {ErrorStateMatcher} from '@angular/material/core';
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-site-header',
@@ -12,10 +24,17 @@ import { Router } from '@angular/router';
 export class SiteHeaderComponent implements OnInit {
   selection: String = 'home';
   menuOpen = false;
-  isConnected = true;
-
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private route: Router) {
+  isConnected = false;
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+  matcher = new MyErrorStateMatcher();
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private route: Router, public variables: VariablesService) {
   }
+  username = '';
+  password = '';
+  email = '';
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -51,6 +70,12 @@ export class SiteHeaderComponent implements OnInit {
   navigateToUser() {
     this.route.navigate(['app-user-page']);
     // this.route.navigate(['item-details', stoId]);
+  }
+
+  inscription() {
+    this.variables.setName(this.username);
+    this.variables.setPassword(this.password);
+    this.variables.setEmail(this.email);
   }
 
 }
