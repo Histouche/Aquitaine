@@ -128,8 +128,8 @@
         </div>
         <div class="col">
             <div class="row mx-0">
-              <div class="col-12 annonce-list-bien mb-2" *ngFor="let annonce of annonces | searchPipe: query" [routerLink]="'/annonce'">
-                  <div class="row mx-0">
+              <div class="col-12 annonce-list-bien mb-2" *ngFor="let annonce of annonces | searchPipe: query" >
+                  <div class="row mx-0" [routerLink]="['/annonce', annonce.id, annonce]">
                     <div class="col-12 col-md-3 bien-img" [style.background-image]=" annonce.image1 ? 'url('+annonce.image1+')' : 'url(\'../../assets/img/home-background.jpg\')'" style="background-position:center;background-size: cover;">
                     </div>
                     <div class="col p-3">

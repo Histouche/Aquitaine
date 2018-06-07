@@ -76,6 +76,7 @@ export class SiteHeaderComponent implements OnInit {
     this.variables.setName(this.username);
     this.variables.setPassword(this.password);
     this.variables.setEmail(this.email);
+    this.isConnected = true;
   }
 
 }

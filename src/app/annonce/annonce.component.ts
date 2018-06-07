@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation, Inject, PLATFORM_ID} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-annonce',
@@ -25,11 +26,11 @@ export class AnnonceComponent implements OnInit {
     }
   ];
   hotelAdresse: any = '40 Rue Edmond Michelet';
-  hotelNote: any = 8;
+  hotelNote: any = "?";
   hotelClassement: any = 3;
   nbHotelVille: any = 177;
   annoncePrix: any = 50;
-  nbAvis: any = 8;
+  nbAvis: any = 0;
   dateDepart: Date;
   dateRetour: Date ;
   typeChambre = '';
@@ -53,13 +54,24 @@ export class AnnonceComponent implements OnInit {
       'name': 'https://imgio.trivago.com/itemimages/12/33/12330_v9_isq@2x.jpeg'
     }
   ];
-  constructor(public dialog: MatDialog, @Inject(PLATFORM_ID) private platformId: Object) {
+  annonce;
+  hotel;
+  ville;
+  constructor(public dialog: MatDialog, @Inject(PLATFORM_ID) private platformId: Object, private route: ActivatedRoute) {
     if (isPlatformBrowser(this.platformId)) {
      
     }
   }
 
   ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+     $(window).scrollTop(0);
+    }
+    this.route.params.subscribe(params => {
+      console.log(params) //log the entire params object
+      console.log(params['id']) //log the value of id
+      this.annonce = params;
+    });
   }
 
 
